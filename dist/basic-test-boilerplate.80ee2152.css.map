@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.scss"],"names":[],"mappings":"AAAA;EACI;EACA","file":"basic-test-boilerplate.80ee2152.css","sourceRoot":"..","sourcesContent":["body {\r\n    font-family: \"Montserrat\", sans-serif;\r\n    background-color: green;\r\n}"]}
