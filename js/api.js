@@ -1,3 +1,22 @@
+function fillCard(plant) {
+    var photoGrid = document.getElementById('photo-grid');
+
+    var html = "<div class='photo-grid__card'>";
+    html += "<img class='card-image' src='images/plants/lucky-bamboo.jpg'>";
+    html += '<div class="card-info"><span class="card-info__plant-name">Lucky Bamboo</span>';
+    html += '<img class="card-image" src="images/plants/lucky-bamboo.jpg">';
+    html += '<div class="card-info__price-option"><span class="card-info__price">$50</span>';
+    html += '<div class="card-info__options-images"><img src="images/icons/pet.svg">';
+    html += '<img src="images/icons/no-sun.svg"><img src="images/icons/2-drops.svg"></div>';
+    html += '</div></div></div'
+
+    photoGrid.innerHTML += html;
+
+    
+            
+
+}
+
 function getData() {
     console.log("oi");
     const WATER = document.getElementById('water').value;
@@ -12,6 +31,10 @@ function getData() {
             response.json().then(function (data) {
                 console.log(data);
                 plants = data;
+
+                data.forEach(function(plant){
+                    fillCard(plant);    
+                });
 
                 var contentNoResults = document.getElementById('content-no-results');
                 var contentResults = document.getElementById('content-results');
