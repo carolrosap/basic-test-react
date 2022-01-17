@@ -1,6 +1,113 @@
 body {
   font-family: "Montserrat", sans-serif;
-  background-color: green;
+  margin: 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.content-top {
+  background-color: #75BC97;
+  height: 500px;
+  top: 0;
+  display: grid;
+  grid-template-columns: 6fr 3fr 3fr;
+}
+.content-top__images {
+  height: 500px;
+}
+.content-top__images.plantperson {
+  height: 428px;
+}
+.content-top__images.leaves {
+  z-index: 1;
+}
+.content-top__left-leaves {
+  left: 0px;
+  top: 0px;
+  justify-self: left;
+}
+.content-top__right-leaves {
+  top: 0px;
+  justify-self: end;
+}
+.content-top__plant-person {
+  margin-top: 36px;
+  margin-bottom: 36px;
+  justify-self: center;
+}
+.content-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  padding-bottom: 53px;
+  padding-top: 47px;
+}
+.content-options__select {
+  margin-top: 25px;
+  border: 1px solid #A8A8A8;
+  box-sizing: border-box;
+  border-radius: 19px;
+  height: 40px;
+  width: 219px;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 27px;
+  /* identical to box height, or 193% */
+  color: #A8A8A8;
+  background-color: #FFFFFF;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Some browsers will not display the caret when using calc, so we put the fallback first */
+  background: url("/arrow-down.073b12d0.svg") #FFFFFF no-repeat 85% !important;
+  /* !important used for overriding all other customisations */
+  background: url("/select-arrow.8fe17809.svg") #FFFFFF no-repeat calc(100% - 15px) !important;
+  /* Better placement regardless of input width */
+  padding-left: 18px;
+}
+.content-options__sunlight--image {
+  width: 75px;
+  height: 75px;
+}
+.content-options__water--image {
+  width: 103px;
+  height: 75px;
+}
+.content-options__pets--image {
+  width: 75px;
+  height: 62px;
+}
+.content-options__text p {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 11px;
+  color: #797979;
+}
+.content-no-results {
+  background-color: #F2F2F2;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr;
+  height: 324px;
+}
+.content-no-results__text {
+  color: #A9A9A9;
+}
+.content-no-results__text .title {
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 55px;
+}
+.content-no-results__text .instructions {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 13.5px;
+}
+.content-no-results__img {
+  align-self: center;
 }
 
 /*# sourceMappingURL=/basic-test-boilerplate.80ee2152.css.map */
