@@ -1,6 +1,7 @@
 body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
+  box-sizing: border-box;
 }
 
 .bold {
@@ -112,6 +113,10 @@ body {
 .content-results {
   background-color: #f2f2f2;
 }
+.content-results__header {
+  width: 1055px;
+  margin: 0 auto;
+}
 .content-results__image {
   width: 158px;
   height: 78px;
@@ -166,25 +171,57 @@ body {
 }
 .photo-grid__card .card-image {
   justify-self: center;
+  height: 129px;
 }
 .photo-grid__card .card-info {
   display: flex;
   flex-direction: column;
   font-weight: bold;
   font-size: 16px;
-  line-height: 28px;
-  /* identical to box height, or 175% */
+  line-height: 20px;
   color: #1e6b4e;
+}
+.photo-grid__card .card-info__plant-name {
+  word-spacing: 100vw;
 }
 .photo-grid__card .card-info__price-option {
   display: inherit;
   justify-content: space-between;
+  margin-top: 5px;
 }
-.photo-grid__card .card-info__price-option__price {
-  margin: 0;
-}
-.photo-grid__card .card-info__price-option__options-images {
+.photo-grid__card .card-info__options-images img {
   height: 18px;
+  margin-left: 8px;
+}
+.photo-grid .staff-favorite {
+  grid-area: 1/1/3/3;
+  height: 530px;
+  width: 475px;
+}
+.photo-grid .staff-favorite .card-image {
+  justify-self: center;
+  height: 353px;
+}
+.photo-grid .staff-favorite .card-info {
+  flex-direction: row;
+}
+.photo-grid .staff-favorite .card-info__price-option {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.photo-grid .staff-favorite .card-info__price {
+  font-size: 24px;
+  line-height: 28px;
+  text-align: right;
+  margin-bottom: 16px;
+}
+.photo-grid .staff-favorite .card-info__plant-name {
+  font-size: 35px;
+  line-height: 37px;
+}
+.photo-grid .staff-favorite .card-info__options-images {
+  display: inherit;
+  flex-direction: row;
 }
 
 /*# sourceMappingURL=/basic-test-boilerplate.80ee2152.css.map */

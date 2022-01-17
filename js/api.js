@@ -1,13 +1,42 @@
-function fillCard(plant) {
+function drawCard(plant) {
     var photoGrid = document.getElementById('photo-grid');
+    
+    console.log(plant);
 
-    var html = "<div class='photo-grid__card'>";
-    html += "<img class='card-image' src='images/plants/lucky-bamboo.jpg'>";
-    html += '<div class="card-info"><span class="card-info__plant-name">Lucky Bamboo</span>';
-    html += '<img class="card-image" src="images/plants/lucky-bamboo.jpg">';
-    html += '<div class="card-info__price-option"><span class="card-info__price">$50</span>';
-    html += '<div class="card-info__options-images"><img src="images/icons/pet.svg">';
-    html += '<img src="images/icons/no-sun.svg"><img src="images/icons/2-drops.svg"></div>';
+    var petsImg, sunImg, waterImg, html;
+
+    if(plant.toxicity) 
+        petsImg = require("../images/icons/toxic.svg");
+    else 
+        petsImg = require("../images/icons/pet.svg");
+
+    if(plant.sun == 'high')
+        sunImg = require("../images/icons/high-sun.svg"); 
+    else if(plant.sun == 'no')
+        sunImg = require("../images/icons/no-sun.svg");
+    else 
+        sunImg = require("../images/icons/low-sun.svg"); 
+
+    if(plant.water == 'regularly') 
+        waterImg = require("../images/icons/2-drops.svg"); 
+    else if(plant.water == 'daily')
+        waterImg = require("../images/icons/3-drops.svg"); 
+    else    
+        waterImg = require("../images/icons/1-drop.svg"); 
+
+
+
+    
+    if(plant.staff_favorite)
+        html = "<div class='photo-grid__card staff-favorite'>";
+    else
+        html = "<div class='photo-grid__card'>";    
+    
+    html += '<img class="card-image" src="' + plant.url + '">';
+    html += '<div class="card-info"><span class="card-info__plant-name">' + plant.name +'</span>';
+    html += '<div class="card-info__price-option"><span class="card-info__price">$' + plant.price +'</span>';
+    html += '<div class="card-info__options-images"><img src="' + petsImg  + '">';
+    html += '<img src="' + sunImg + '"><img src="' + waterImg + '"></div>';
     html += '</div></div></div'
 
     photoGrid.innerHTML += html;
@@ -18,22 +47,21 @@ function fillCard(plant) {
 }
 
 function getData() {
-    console.log("oi");
+    // console.log("oi");
     const WATER = document.getElementById('water').value;
     const SUN = document.getElementById('sunlight').value;
     const PETS = document.getElementById('pets').value;
-    var plants = [];
-
     if (WATER && SUN && PETS) {
         const URL_TO_FETCH = 'https://front-br-challenges.web.app/api/v2/green-thumb/?sun=' + SUN + '&water=' + WATER + '&pets=' + PETS;
         console.log(URL_TO_FETCH)
         fetch(URL_TO_FETCH).then(function (response) {
             response.json().then(function (data) {
-                console.log(data);
-                plants = data;
+                // console.log(data);
+                document.getElementById('photo-grid').innerHTML = '';
+
 
                 data.forEach(function(plant){
-                    fillCard(plant);    
+                    drawCard(plant);    
                 });
 
                 var contentNoResults = document.getElementById('content-no-results');
@@ -51,7 +79,7 @@ function getData() {
             console.error('Failed retrieving information', err);
         });
 
-        console.log(plants.length);
+        // console.log(plants.length);
 
         
 
