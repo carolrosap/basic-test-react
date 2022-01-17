@@ -8,7 +8,7 @@ body {
 }
 
 .content-top {
-  background-color: #75BC97;
+  background-color: #75bc97;
   height: 500px;
   top: 0;
   display: grid;
@@ -46,7 +46,7 @@ body {
 }
 .content-options__select {
   margin-top: 25px;
-  border: 1px solid #A8A8A8;
+  border: 1px solid #a8a8a8;
   box-sizing: border-box;
   border-radius: 19px;
   height: 40px;
@@ -56,15 +56,15 @@ body {
   font-size: 14px;
   line-height: 27px;
   /* identical to box height, or 193% */
-  color: #A8A8A8;
-  background-color: #FFFFFF;
+  color: #a8a8a8;
+  background-color: #ffffff;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   /* Some browsers will not display the caret when using calc, so we put the fallback first */
-  background: url("/arrow-down.073b12d0.svg") #FFFFFF no-repeat 85% !important;
+  background: url("/arrow-down.073b12d0.svg") #ffffff no-repeat 85% !important;
   /* !important used for overriding all other customisations */
-  background: url("/select-arrow.8fe17809.svg") #FFFFFF no-repeat calc(100% - 15px) !important;
+  background: url("/select-arrow.8fe17809.svg") #ffffff no-repeat calc(100% - 15px) !important;
   /* Better placement regardless of input width */
   padding-left: 18px;
 }
@@ -87,14 +87,14 @@ body {
   color: #797979;
 }
 .content-no-results {
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   display: grid;
   justify-items: center;
   grid-template-columns: 1fr 1fr;
   height: 324px;
 }
 .content-no-results__text {
-  color: #A9A9A9;
+  color: #a9a9a9;
 }
 .content-no-results__text .title {
   font-weight: bold;
@@ -108,6 +108,37 @@ body {
 }
 .content-no-results__img {
   align-self: center;
+}
+.content-results__image {
+  width: 158px;
+  height: 78px;
+}
+.content-results__title {
+  font-weight: bold;
+  font-size: 55px;
+  line-height: 67px;
+  color: #0c261c;
+}
+.content-results__photo-grid {
+  display: grid;
+}
+.content-results__bottom-button {
+  border: 1px solid #15573f;
+  box-sizing: border-box;
+  border-radius: 25px;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  color: #196146;
+  height: 50px;
+  width: 900px;
+  left: 0px;
+  top: 0px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=/basic-test-boilerplate.80ee2152.css.map */
