@@ -2,6 +2,8 @@ body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
   box-sizing: border-box;
+  height: 100vh;
+  background-color: #f2f2f2;
 }
 
 .bold {
@@ -13,7 +15,10 @@ body {
   height: 500px;
   top: 0;
   display: grid;
-  grid-template-columns: 6fr 3fr 3fr;
+  grid-template-columns: repeat(24, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 .content-top__images {
   height: 500px;
@@ -25,25 +30,58 @@ body {
   z-index: 1;
 }
 .content-top__left-leaves {
-  left: 0px;
+  z-index: 2;
   top: 0px;
   justify-self: left;
+  grid-area: 1/1/2/8;
+}
+.content-top__text {
+  grid-area: 1/4/2/12;
+  z-index: 3;
+  font-weight: bold;
+  font-size: 70px;
+  line-height: 85px;
+  color: #ffffff;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.content-top__text--find p {
+  margin: 0;
+}
+.content-top__text--logo {
+  width: 209px;
+  height: 25px;
+}
+.content-top__text--arrow {
+  width: 35px;
+  height: 39px;
+  margin-bottom: 15px;
 }
 .content-top__right-leaves {
   top: 0px;
   justify-self: end;
+  grid-area: 1/9/2/25;
+  z-index: 2;
 }
 .content-top__plant-person {
   margin-top: 36px;
   margin-bottom: 36px;
-  justify-self: center;
+  grid-area: 1/14/2/23;
 }
 .content-options {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
+  background-color: #ffffff;
+}
+.content-options__items {
+  display: flex;
+  justify-items: stretch;
   padding-bottom: 53px;
   padding-top: 47px;
+  width: 1055px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 .content-options__select {
   margin-top: 25px;
@@ -56,13 +94,11 @@ body {
   font-weight: 300;
   font-size: 14px;
   line-height: 27px;
-  /* identical to box height, or 193% */
   color: #a8a8a8;
   background-color: #ffffff;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  /* Some browsers will not display the caret when using calc, so we put the fallback first */
   background: url("/arrow-down.073b12d0.svg") #ffffff no-repeat 85% !important;
   /* !important used for overriding all other customisations */
   background: url("/select-arrow.8fe17809.svg") #ffffff no-repeat calc(100% - 15px) !important;
@@ -89,10 +125,14 @@ body {
 }
 .content-no-results {
   background-color: #f2f2f2;
+}
+.content-no-results__items {
   display: grid;
-  justify-items: center;
   grid-template-columns: 1fr 1fr;
   height: 324px;
+  width: 1055px;
+  margin: 0 auto;
+  column-gap: 110px;
 }
 .content-no-results__text {
   color: #a9a9a9;
@@ -112,6 +152,9 @@ body {
 }
 .content-results {
   background-color: #f2f2f2;
+  display: none;
+  padding-top: 37px;
+  padding-bottom: 128px;
 }
 .content-results__header {
   width: 1055px;
@@ -129,10 +172,10 @@ body {
 }
 .content-results__photo-grid {
   display: grid;
-  grid-template-rows: 1fr 1fr;
   justify-items: center;
 }
 .content-results__bottom-button {
+  margin-top: 59px;
   border: 1px solid #15573f;
   box-sizing: border-box;
   border-radius: 25px;
@@ -142,13 +185,20 @@ body {
   line-height: 20px;
   color: #196146;
   height: 50px;
-  width: 900px;
+  width: 1055px;
   left: 0px;
   top: 0px;
   border-radius: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.content-results__bottom-button .back-icon {
+  margin-right: 17px;
+}
+.content-results__bottom-button .back-text {
+  text-decoration: none;
+  color: inherit;
 }
 
 .photo-grid {

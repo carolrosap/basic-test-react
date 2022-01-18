@@ -1,7 +1,6 @@
 function drawCard(plant) {
     var photoGrid = document.getElementById('photo-grid');
     
-    console.log(plant);
 
     var petsImg, sunImg, waterImg, html;
 
@@ -24,9 +23,6 @@ function drawCard(plant) {
     else    
         waterImg = require("../images/icons/1-drop.svg"); 
 
-
-
-    
     if(plant.staff_favorite)
         html = "<div class='photo-grid__card staff-favorite'>";
     else
@@ -41,13 +37,9 @@ function drawCard(plant) {
 
     photoGrid.innerHTML += html;
 
-    
-            
-
 }
 
 function getData() {
-    // console.log("oi");
     const WATER = document.getElementById('water').value;
     const SUN = document.getElementById('sunlight').value;
     const PETS = document.getElementById('pets').value;
@@ -60,13 +52,14 @@ function getData() {
                 document.getElementById('photo-grid').innerHTML = '';
 
 
-                data.forEach(function(plant){
-                    drawCard(plant);    
-                });
-
-                var contentNoResults = document.getElementById('content-no-results');
-                var contentResults = document.getElementById('content-results');
+                
                 if(data.length > 0 ) {
+                    data.forEach(function(plant){
+                        drawCard(plant);    
+                    });
+    
+                    var contentNoResults = document.getElementById('content-no-results');
+                    var contentResults = document.getElementById('content-results');
                     contentNoResults.style.display = 'none'; 
                     contentResults.style.display = 'grid';
                 }else {

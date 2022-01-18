@@ -136,7 +136,6 @@ module.exports = "/1-drop.40dea4f5.svg";
 },{}],"js/api.js":[function(require,module,exports) {
 function drawCard(plant) {
   var photoGrid = document.getElementById('photo-grid');
-  console.log(plant);
   var petsImg, sunImg, waterImg, html;
   if (plant.toxicity) petsImg = require("../images/icons/toxic.svg");else petsImg = require("../images/icons/pet.svg");
   if (plant.sun == 'high') sunImg = require("../images/icons/high-sun.svg");else if (plant.sun == 'no') sunImg = require("../images/icons/no-sun.svg");else sunImg = require("../images/icons/low-sun.svg");
@@ -152,7 +151,6 @@ function drawCard(plant) {
 }
 
 function getData() {
-  // console.log("oi");
   var WATER = document.getElementById('water').value;
   var SUN = document.getElementById('sunlight').value;
   var PETS = document.getElementById('pets').value;
@@ -164,13 +162,13 @@ function getData() {
       response.json().then(function (data) {
         // console.log(data);
         document.getElementById('photo-grid').innerHTML = '';
-        data.forEach(function (plant) {
-          drawCard(plant);
-        });
-        var contentNoResults = document.getElementById('content-no-results');
-        var contentResults = document.getElementById('content-results');
 
         if (data.length > 0) {
+          data.forEach(function (plant) {
+            drawCard(plant);
+          });
+          var contentNoResults = document.getElementById('content-no-results');
+          var contentResults = document.getElementById('content-results');
           contentNoResults.style.display = 'none';
           contentResults.style.display = 'grid';
         } else {
