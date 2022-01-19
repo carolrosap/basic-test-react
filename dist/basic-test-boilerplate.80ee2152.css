@@ -273,5 +273,9 @@ body {
   display: inherit;
   flex-direction: row;
 }
+.photo-grid .staff-favorite .card-info__options-images img {
+  width: 35px;
+  height: 26px;
+}
 
 /*# sourceMappingURL=/basic-test-boilerplate.80ee2152.css.map */
