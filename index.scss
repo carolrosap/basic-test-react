@@ -207,28 +207,24 @@ body {
             border: 1px solid #15573f;
             box-sizing: border-box;
             border-radius: 25px;
-            font-style: normal;
-            font-weight: 300;
-            font-size: 16px;
-            line-height: 20px;
-
-            color: #196146;
             height: 50px;
             width: 1055px;
-            left: 0px;
-            top: 0px;
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+            .bottom-button-items {
+                height: inherit;
+                font-style: normal;
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 20px;
+                color: #196146;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+            }
 
             .back-icon {
                 margin-right: 17px;
-            }
-
-            .back-text {
-                text-decoration: none;
-                color: inherit;
             }
         }
     }

@@ -134,6 +134,10 @@ module.exports = "/3-drops.c412d65e.svg";
 },{}],"images/icons/1-drop.svg":[function(require,module,exports) {
 module.exports = "/1-drop.40dea4f5.svg";
 },{}],"js/api.js":[function(require,module,exports) {
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function drawCard(plant) {
   var photoGrid = document.getElementById('photo-grid');
   var petsImg, sunImg, waterImg, html;
@@ -146,7 +150,7 @@ function drawCard(plant) {
   html += '<div class="card-info__price-option"><span class="card-info__price">$' + plant.price + '</span>';
   html += '<div class="card-info__options-images"><img src="' + petsImg + '">';
   html += '<img src="' + sunImg + '"><img src="' + waterImg + '"></div>';
-  html += '</div></div></div';
+  html += '</div></div></div>';
   photoGrid.innerHTML += html;
 }
 
@@ -157,10 +161,8 @@ function getData() {
 
   if (WATER && SUN && PETS) {
     var URL_TO_FETCH = 'https://front-br-challenges.web.app/api/v2/green-thumb/?sun=' + SUN + '&water=' + WATER + '&pets=' + PETS;
-    console.log(URL_TO_FETCH);
     fetch(URL_TO_FETCH).then(function (response) {
       response.json().then(function (data) {
-        // console.log(data);
         document.getElementById('photo-grid').innerHTML = '';
 
         if (data.length > 0) {
@@ -178,17 +180,81 @@ function getData() {
       });
     }).catch(function (err) {
       console.error('Failed retrieving information', err);
-    }); // console.log(plants.length);
+    });
   }
+} // const selectWater = document.querySelector('#water');
+// const selectSun = document.querySelector('#sunlight');
+// const selectPets = document.querySelector('#pets');
+// selectSun.onchange = getData;
+// selectWater.onchange = getData;
+// selectPets.onchange = getData;
+
+
+function requireComponents() {
+  return _requireComponents.apply(this, arguments);
 }
 
-var selectWater = document.querySelector('#water');
-var selectSun = document.querySelector('#sunlight');
-var selectPets = document.querySelector('#pets');
-selectSun.onchange = getData;
-selectWater.onchange = getData;
-selectPets.onchange = getData;
-},{"../images/icons/toxic.svg":"images/icons/toxic.svg","../images/icons/pet.svg":"images/icons/pet.svg","../images/icons/high-sun.svg":"images/icons/high-sun.svg","../images/icons/no-sun.svg":"images/icons/no-sun.svg","../images/icons/low-sun.svg":"images/icons/low-sun.svg","../images/icons/2-drops.svg":"images/icons/2-drops.svg","../images/icons/3-drops.svg":"images/icons/3-drops.svg","../images/icons/1-drop.svg":"images/icons/1-drop.svg"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+function _requireComponents() {
+  _requireComponents = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    var header, options, noResults, results;
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            header = require("/components/top-header.html");
+            options = require("/components/options.html");
+            noResults = require("/components/no-results.html");
+            results = require("/components/results.html");
+            document.getElementById("content-top").innerHTML = header;
+            document.getElementById("content-options").innerHTML = options;
+            document.getElementById("content-no-results").innerHTML = noResults;
+            document.getElementById("content-results").innerHTML = results;
+
+          case 8:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _requireComponents.apply(this, arguments);
+}
+
+function putEvents() {
+  return _putEvents.apply(this, arguments);
+}
+
+function _putEvents() {
+  _putEvents = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+    var selectWater, selectSun, selectPets;
+    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return requireComponents();
+
+          case 2:
+            test = _context2.sent;
+            selectWater = document.querySelector('#water');
+            selectSun = document.querySelector('#sunlight');
+            selectPets = document.querySelector('#pets');
+            selectSun.onchange = getData;
+            selectWater.onchange = getData;
+            selectPets.onchange = getData;
+
+          case 9:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+  return _putEvents.apply(this, arguments);
+}
+
+putEvents();
+},{"../images/icons/toxic.svg":"images/icons/toxic.svg","../images/icons/pet.svg":"images/icons/pet.svg","../images/icons/high-sun.svg":"images/icons/high-sun.svg","../images/icons/no-sun.svg":"images/icons/no-sun.svg","../images/icons/low-sun.svg":"images/icons/low-sun.svg","../images/icons/2-drops.svg":"images/icons/2-drops.svg","../images/icons/3-drops.svg":"images/icons/3-drops.svg","../images/icons/1-drop.svg":"images/icons/1-drop.svg","/components/top-header.html":"components/top-header.html","/components/options.html":"components/options.html","/components/no-results.html":"components/no-results.html","/components/results.html":"components/results.html"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -216,7 +282,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50296" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58853" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -392,5 +458,128 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/api.js"], null)
+},{}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel-bundler/src/builtins/bundle-loader.js":[function(require,module,exports) {
+var getBundleURL = require('./bundle-url').getBundleURL;
+
+function loadBundlesLazy(bundles) {
+  if (!Array.isArray(bundles)) {
+    bundles = [bundles];
+  }
+
+  var id = bundles[bundles.length - 1];
+
+  try {
+    return Promise.resolve(require(id));
+  } catch (err) {
+    if (err.code === 'MODULE_NOT_FOUND') {
+      return new LazyPromise(function (resolve, reject) {
+        loadBundles(bundles.slice(0, -1)).then(function () {
+          return require(id);
+        }).then(resolve, reject);
+      });
+    }
+
+    throw err;
+  }
+}
+
+function loadBundles(bundles) {
+  return Promise.all(bundles.map(loadBundle));
+}
+
+var bundleLoaders = {};
+
+function registerBundleLoader(type, loader) {
+  bundleLoaders[type] = loader;
+}
+
+module.exports = exports = loadBundlesLazy;
+exports.load = loadBundles;
+exports.register = registerBundleLoader;
+var bundles = {};
+
+function loadBundle(bundle) {
+  var id;
+
+  if (Array.isArray(bundle)) {
+    id = bundle[1];
+    bundle = bundle[0];
+  }
+
+  if (bundles[bundle]) {
+    return bundles[bundle];
+  }
+
+  var type = (bundle.substring(bundle.lastIndexOf('.') + 1, bundle.length) || bundle).toLowerCase();
+  var bundleLoader = bundleLoaders[type];
+
+  if (bundleLoader) {
+    return bundles[bundle] = bundleLoader(getBundleURL() + bundle).then(function (resolved) {
+      if (resolved) {
+        module.bundle.register(id, resolved);
+      }
+
+      return resolved;
+    }).catch(function (e) {
+      delete bundles[bundle];
+      throw e;
+    });
+  }
+}
+
+function LazyPromise(executor) {
+  this.executor = executor;
+  this.promise = null;
+}
+
+LazyPromise.prototype.then = function (onSuccess, onError) {
+  if (this.promise === null) this.promise = new Promise(this.executor);
+  return this.promise.then(onSuccess, onError);
+};
+
+LazyPromise.prototype.catch = function (onError) {
+  if (this.promise === null) this.promise = new Promise(this.executor);
+  return this.promise.catch(onError);
+};
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/parcel-bundler/src/builtins/loaders/browser/html-loader.js":[function(require,module,exports) {
+module.exports = function loadHTMLBundle(bundle) {
+  return fetch(bundle).then(function (res) {
+    return res.text();
+  });
+};
+},{}],0:[function(require,module,exports) {
+var b=require("node_modules/parcel-bundler/src/builtins/bundle-loader.js");b.register("html",require("node_modules/parcel-bundler/src/builtins/loaders/browser/html-loader.js"));b.load([["top-header.51c09c7d.html","components/top-header.html"],["options.6e105cdd.html","components/options.html"],["no-results.a8c972c2.html","components/no-results.html"],["results.e5a11603.html","components/results.html"]]).then(function(){require("js/api.js");});
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js",0], null)
 //# sourceMappingURL=/api.0997d2ba.js.map
