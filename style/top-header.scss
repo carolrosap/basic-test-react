@@ -1,0 +1,131 @@
+.content-top {
+    background-color: #75bc97;
+    height: 500px;
+    top: 0;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+
+    @media (max-width: 801px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+
+    }
+
+
+    &__images {
+        height: 500px;
+
+        &.plantperson {
+            height: 428px;
+        }
+
+        &.leaves {
+            z-index: 1;
+        }
+
+        // @media (max-width: 801px) {
+        //     display: none;
+
+        // }
+    }
+
+    &__left-leaves {
+        z-index: 2;
+        top: 0px;
+        justify-self: left;
+        grid-area: 1 / 1 / 2 / 8;
+
+        @media (max-width: 801px) {
+            display: none;
+        }
+    }
+
+    &__text {
+        grid-area: 1 / 4 / 2 / 12;
+        z-index: 3;
+        font-weight: bold;
+        font-size: 70px;
+        line-height: 85px;
+
+        @media (max-width: 801px) {
+            font-size: 40px;
+            line-height: 49px;
+            display: none;
+
+        }
+
+        &--find p {
+            margin: 0;
+        }
+
+        color: #ffffff;
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+
+        &--logo {
+            width: 209px;
+            height: 25px;
+        }
+
+        &--arrow {
+            width: 35px;
+            height: 39px;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__right-leaves {
+        top: 0px;
+        justify-self: end;
+        grid-area: 1 / 9 / 2 / 25;
+        z-index: 2;
+
+        @media (max-width: 801px) {
+            display: none;
+        }
+    }
+
+    &__plant-person {
+        margin-top: 36px;
+        margin-bottom: 36px;
+        grid-area: 1 / 14 / 2 / 23;
+        height: 234px;
+        width: 276px;
+
+
+
+        @media (max-width: 801px) {
+            display: none;
+        }
+    }
+
+    &__mobile-leaves {
+        grid-area: 1 / 1 / 5 / 3;
+        display: inherit;
+        height: 412px;
+        width: 320px;
+
+
+        @media (min-width: 801px) {
+            display: none;
+        }
+
+    }
+
+    &__mobile-plant-person {
+
+        grid-area: 4 / 1 / 7 / 3;
+        display: inherit;
+
+        @media (min-width: 801px) {
+            display: none;
+        }
+
+    }
+}

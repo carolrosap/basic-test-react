@@ -1,0 +1,79 @@
+.content-options {
+    background-color: #ffffff;
+    &__items {
+        display: flex;
+        //justify-items: stretch;
+        padding-bottom: 53px;
+        padding-top: 47px;
+        width: 1055px;
+        margin: 0 auto;
+        justify-content: space-between;
+        align-items: flex-end;
+        @media (max-width: 801px)  {
+            padding-top: 18px;
+            padding-bottom: 38px;
+            flex-direction: column;
+            align-items: center;
+            width: auto;
+            justify-content: center;
+            gap: 60px;
+        }
+
+    }
+
+    &__select {
+        margin-top: 25px;
+        border: 1px solid #a8a8a8;
+        box-sizing: border-box;
+        border-radius: 19px;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 27px;
+        color: #a8a8a8;
+        background-color: #ffffff;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: url("/images/icons/arrow-down.svg") #ffffff no-repeat 85% !important; /* !important used for overriding all other customisations */
+        background: url("/images/icons/select-arrow.svg") #ffffff no-repeat calc(100% - 15px) !important; /* Better placement regardless of input width */
+        padding-left: 18px;
+        height: 40px;
+        width: 219px;
+
+        @media (max-width: 801px)  {
+            height: 40px;
+            width: 245px;
+           
+        }
+    }
+
+    &__sunlight {
+        &--image {
+            width: 75px;
+            height: 75px;
+        }
+    }
+
+    &__water {
+        &--image {
+            width: 103px;
+            height: 75px;
+        }
+    }
+
+    &__pets {
+        &--image {
+            width: 75px;
+            height: 62px;
+        }
+    }
+    &__text {
+        p {
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 11px;
+            color: #797979;
+        }
+    }
+}

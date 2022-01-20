@@ -117,77 +117,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"images/icons/toxic.svg":[function(require,module,exports) {
-module.exports = "/toxic.7f74c9f9.svg";
-},{}],"images/icons/pet.svg":[function(require,module,exports) {
-module.exports = "/pet.227efecc.svg";
-},{}],"images/icons/high-sun.svg":[function(require,module,exports) {
-module.exports = "/high-sun.24dcbddd.svg";
-},{}],"images/icons/no-sun.svg":[function(require,module,exports) {
-module.exports = "/no-sun.13a7574d.svg";
-},{}],"images/icons/low-sun.svg":[function(require,module,exports) {
-module.exports = "/low-sun.b84c5a4b.svg";
-},{}],"images/icons/2-drops.svg":[function(require,module,exports) {
-module.exports = "/2-drops.d9995d47.svg";
-},{}],"images/icons/3-drops.svg":[function(require,module,exports) {
-module.exports = "/3-drops.c412d65e.svg";
-},{}],"images/icons/1-drop.svg":[function(require,module,exports) {
-module.exports = "/1-drop.40dea4f5.svg";
-},{}],"js/loadApiData.js":[function(require,module,exports) {
-"use strict";
+})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.drawCard = drawCard;
-exports.getData = getData;
-
-function drawCard(plant) {
-  var photoGrid = document.getElementById('photo-grid');
-  var petsImg, sunImg, waterImg, html;
-  if (plant.toxicity) petsImg = require("/images/icons/toxic.svg");else petsImg = require("/images/icons/pet.svg");
-  if (plant.sun == 'high') sunImg = require("/images/icons/high-sun.svg");else if (plant.sun == 'no') sunImg = require("/images/icons/no-sun.svg");else sunImg = require("/images/icons/low-sun.svg");
-  if (plant.water == 'regularly') waterImg = require("/images/icons/2-drops.svg");else if (plant.water == 'daily') waterImg = require("/images/icons/3-drops.svg");else waterImg = require("/images/icons/1-drop.svg");
-  if (plant.staff_favorite) html = "<div class='photo-grid__card staff-favorite'>";else html = "<div class='photo-grid__card'>";
-  html += '<img class="card-image" src="' + plant.url + '">';
-  html += '<div class="card-info"><span class="card-info__plant-name">' + plant.name + '</span>';
-  html += '<div class="card-info__price-option"><span class="card-info__price">$' + plant.price + '</span>';
-  html += '<div class="card-info__options-images"><img src="' + petsImg + '">';
-  html += '<img src="' + sunImg + '"><img src="' + waterImg + '"></div>';
-  html += '</div></div></div>';
-  photoGrid.innerHTML += html;
-}
-
-function getData() {
-  var WATER = document.getElementById('water').value;
-  var SUN = document.getElementById('sunlight').value;
-  var PETS = document.getElementById('pets').value;
-
-  if (WATER && SUN && PETS) {
-    var URL_TO_FETCH = 'https://front-br-challenges.web.app/api/v2/green-thumb/?sun=' + SUN + '&water=' + WATER + '&pets=' + PETS;
-    fetch(URL_TO_FETCH).then(function (response) {
-      response.json().then(function (data) {
-        document.getElementById('photo-grid').innerHTML = '';
-
-        if (data.length > 0) {
-          data.forEach(function (plant) {
-            drawCard(plant);
-          });
-          var contentNoResults = document.getElementById('content-no-results');
-          var contentResults = document.getElementById('content-results');
-          contentNoResults.style.display = 'none';
-          contentResults.style.display = 'grid';
-        } else {
-          contentNoResults.style.display = 'grid';
-          contentResults.style.display = 'none';
-        }
-      });
-    }).catch(function (err) {
-      console.error('Failed retrieving information', err);
-    });
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
   }
+
+  return bundleURL;
 }
-},{"/images/icons/toxic.svg":"images/icons/toxic.svg","/images/icons/pet.svg":"images/icons/pet.svg","/images/icons/high-sun.svg":"images/icons/high-sun.svg","/images/icons/no-sun.svg":"images/icons/no-sun.svg","/images/icons/low-sun.svg":"images/icons/low-sun.svg","/images/icons/2-drops.svg":"images/icons/2-drops.svg","/images/icons/3-drops.svg":"images/icons/3-drops.svg","/images/icons/1-drop.svg":"images/icons/1-drop.svg"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"style/results.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -391,5 +393,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/loadApiData.js"], null)
-//# sourceMappingURL=/loadApiData.15e9ef16.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/results.7e1f0e4c.js.map
