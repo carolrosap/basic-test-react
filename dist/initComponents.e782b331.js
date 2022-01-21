@@ -133,6 +133,8 @@ module.exports = "/2-drops.d9995d47.svg";
 module.exports = "/3-drops.c412d65e.svg";
 },{}],"images/icons/1-drop.svg":[function(require,module,exports) {
 module.exports = "/1-drop.40dea4f5.svg";
+},{}],"images/icons/stafffav.svg":[function(require,module,exports) {
+module.exports = "/stafffav.eaf31f0c.svg";
 },{}],"js/loadApiData.js":[function(require,module,exports) {
 "use strict";
 
@@ -148,7 +150,14 @@ function drawCard(plant) {
   if (plant.toxicity) petsImg = require("/images/icons/toxic.svg");else petsImg = require("/images/icons/pet.svg");
   if (plant.sun == 'high') sunImg = require("/images/icons/high-sun.svg");else if (plant.sun == 'no') sunImg = require("/images/icons/no-sun.svg");else sunImg = require("/images/icons/low-sun.svg");
   if (plant.water == 'regularly') waterImg = require("/images/icons/2-drops.svg");else if (plant.water == 'daily') waterImg = require("/images/icons/3-drops.svg");else waterImg = require("/images/icons/1-drop.svg");
-  if (plant.staff_favorite) html = "<div class='photo-grid__card staff-favorite'>";else html = "<div class='photo-grid__card'>";
+
+  if (plant.staff_favorite) {
+    var staff = require("/images/icons/stafffav.svg");
+
+    html = "<div class='photo-grid__card staff-favorite'>";
+    html += '<img src="' + staff + '" class="staff-fav-icon">';
+  } else html = "<div class='photo-grid__card'>";
+
   html += '<img class="card-image" src="' + plant.url + '">';
   html += '<div class="card-info"><span class="card-info__plant-name">' + plant.name + '</span>';
   html += '<div class="card-info__price-option"><span class="card-info__price">$' + plant.price + '</span>';
@@ -181,13 +190,15 @@ function getData() {
           contentNoResults.style.display = 'grid';
           contentResults.style.display = 'none';
         }
+      }).catch(function (err) {
+        console.log('erro');
       });
     }).catch(function (err) {
       console.error('Failed retrieving information', err);
     });
   }
 }
-},{"/images/icons/toxic.svg":"images/icons/toxic.svg","/images/icons/pet.svg":"images/icons/pet.svg","/images/icons/high-sun.svg":"images/icons/high-sun.svg","/images/icons/no-sun.svg":"images/icons/no-sun.svg","/images/icons/low-sun.svg":"images/icons/low-sun.svg","/images/icons/2-drops.svg":"images/icons/2-drops.svg","/images/icons/3-drops.svg":"images/icons/3-drops.svg","/images/icons/1-drop.svg":"images/icons/1-drop.svg"}],"js/initComponents.js":[function(require,module,exports) {
+},{"/images/icons/toxic.svg":"images/icons/toxic.svg","/images/icons/pet.svg":"images/icons/pet.svg","/images/icons/high-sun.svg":"images/icons/high-sun.svg","/images/icons/no-sun.svg":"images/icons/no-sun.svg","/images/icons/low-sun.svg":"images/icons/low-sun.svg","/images/icons/2-drops.svg":"images/icons/2-drops.svg","/images/icons/3-drops.svg":"images/icons/3-drops.svg","/images/icons/1-drop.svg":"images/icons/1-drop.svg","/images/icons/stafffav.svg":"images/icons/stafffav.svg"}],"js/initComponents.js":[function(require,module,exports) {
 "use strict";
 
 var _loadApiData = require("/js/loadApiData.js");
@@ -290,7 +301,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57156" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57791" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

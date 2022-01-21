@@ -12,6 +12,8 @@
   .content-top {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(6, 1fr);
+    overflow: hidden;
+    height: 100vh;
   }
 }
 .content-top__images {
@@ -48,9 +50,19 @@
 }
 @media (max-width: 801px) {
   .content-top__text {
+    grid-area: initial;
     font-size: 40px;
     line-height: 49px;
-    display: none;
+    position: absolute;
+    top: 36px;
+    left: 36px;
+    display: block;
+  }
+  .content-top__text--find {
+    margin-bottom: 26px;
+  }
+  .content-top__text--logo {
+    margin-bottom: 26px;
   }
 }
 .content-top__text--find p {
@@ -92,7 +104,11 @@
   grid-area: 1/1/5/3;
   display: inherit;
   height: 412px;
-  width: 320px;
+  width: 100%;
+  background-position: bottom;
+  background-size: cover;
+  z-index: 1;
+  background-image: url("/mobile-leaves.7c984b1e.png");
 }
 @media (min-width: 801px) {
   .content-top__mobile-leaves {
@@ -102,6 +118,11 @@
 .content-top__mobile-plant-person {
   grid-area: 4/1/7/3;
   display: inherit;
+  justify-content: center;
+}
+.content-top__mobile-plant-person img {
+  height: auto;
+  width: 86.25vw;
 }
 @media (min-width: 801px) {
   .content-top__mobile-plant-person {

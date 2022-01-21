@@ -8,13 +8,12 @@
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 
-
     @media (max-width: 801px) {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(6, 1fr);
-
+        overflow: hidden;
+        height: 100vh;
     }
-
 
     &__images {
         height: 500px;
@@ -27,10 +26,6 @@
             z-index: 1;
         }
 
-        // @media (max-width: 801px) {
-        //     display: none;
-
-        // }
     }
 
     &__left-leaves {
@@ -52,10 +47,22 @@
         line-height: 85px;
 
         @media (max-width: 801px) {
+            grid-area: initial;
             font-size: 40px;
             line-height: 49px;
-            display: none;
 
+            position: absolute;
+            top: 36px;
+            left: 36px;
+            display: block;
+
+            &--find {
+                margin-bottom: 26px;
+            }
+
+            &--logo {
+                margin-bottom: 26px;
+            }
         }
 
         &--find p {
@@ -98,8 +105,6 @@
         height: 234px;
         width: 276px;
 
-
-
         @media (max-width: 801px) {
             display: none;
         }
@@ -109,23 +114,32 @@
         grid-area: 1 / 1 / 5 / 3;
         display: inherit;
         height: 412px;
-        width: 320px;
+        width: 100%;
 
+        background-position: bottom;
+        background-size: cover;
+
+        z-index: 1;
+
+        background-image: url("/images/hero/mobile/mobile-leaves.png");
 
         @media (min-width: 801px) {
             display: none;
         }
-
     }
 
     &__mobile-plant-person {
-
         grid-area: 4 / 1 / 7 / 3;
         display: inherit;
+        justify-content: center;
+
+        img {
+            height: auto;
+            width: 86.25vw;
+        }
 
         @media (min-width: 801px) {
             display: none;
         }
-
     }
 }

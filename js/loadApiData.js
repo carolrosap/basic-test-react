@@ -21,9 +21,11 @@ export function drawCard(plant) {
     else
         waterImg = require("/images/icons/1-drop.svg");
 
-    if (plant.staff_favorite)
+    if (plant.staff_favorite){
+        let staff = require("/images/icons/stafffav.svg"); 
         html = "<div class='photo-grid__card staff-favorite'>";
-    else
+        html +='<img src="'+ staff+ '" class="staff-fav-icon">';
+    }else
         html = "<div class='photo-grid__card'>";
 
     html += '<img class="card-image" src="' + plant.url + '">';
@@ -61,6 +63,8 @@ export function getData() {
                     contentResults.style.display = 'none';
                 }
 
+            }).catch(function (err) {
+                console.log('erro');
             });
         }).catch(function (err) {
             console.error('Failed retrieving information', err);

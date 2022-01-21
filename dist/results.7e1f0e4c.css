@@ -4,13 +4,31 @@
   padding-top: 37px;
   padding-bottom: 128px;
 }
+@media (max-width: 801px) {
+  .content-results {
+    padding-top: 32px;
+    padding-bottom: 79px;
+  }
+}
 .content-results__header {
   width: 1055px;
   margin: 0 auto;
 }
+@media (max-width: 801px) {
+  .content-results__header {
+    width: 84vw;
+    margin-left: 46px;
+  }
+}
 .content-results__image {
   width: 158px;
   height: 78px;
+}
+@media (max-width: 801px) {
+  .content-results__image {
+    height: 72px;
+    width: 146px;
+  }
 }
 .content-results__title {
   font-weight: bold;
@@ -18,9 +36,21 @@
   line-height: 67px;
   color: #0c261c;
 }
+@media (max-width: 801px) {
+  .content-results__title {
+    margin-right: 35px;
+    font-size: 40px;
+    line-height: 49px;
+  }
+}
 .content-results__photo-grid {
   display: grid;
   justify-items: center;
+}
+@media (max-width: 801px) {
+  .content-results__photo-grid {
+    width: 100vw;
+  }
 }
 .content-results__bottom-button {
   margin-top: 59px;
@@ -29,6 +59,11 @@
   border-radius: 25px;
   height: 50px;
   width: 1055px;
+}
+@media (max-width: 801px) {
+  .content-results__bottom-button {
+    width: 80vw;
+  }
 }
 .content-results__bottom-button .bottom-button-items {
   height: inherit;
@@ -53,20 +88,42 @@
   row-gap: 20px;
   grid-template-columns: 3fr 3fr 3fr 3fr;
 }
+@media (max-width: 801px) {
+  .photo-grid {
+    width: 88vw;
+    overflow-x: auto;
+    grid-auto-flow: column;
+    column-gap: 16px;
+    margin-left: 0px;
+  }
+}
 .photo-grid__card {
   background: #ffffff;
   padding: 20px 20px 0 19px;
   border-radius: 5px;
   height: 245px;
   width: 206px;
-  left: 0px;
-  top: 0px;
+  box-sizing: border-box;
   border-radius: 5px;
   display: inherit;
+}
+@media (max-width: 801px) {
+  .photo-grid__card {
+    width: 258px;
+    height: 321px;
+    padding: 20px 18px 17px 21px;
+  }
 }
 .photo-grid__card .card-image {
   justify-self: center;
   height: 129px;
+  max-width: 183px;
+}
+@media (max-width: 801px) {
+  .photo-grid__card .card-image {
+    height: 221px;
+    max-width: 230px;
+  }
 }
 .photo-grid__card .card-info {
   display: flex;
@@ -77,7 +134,7 @@
   color: #1e6b4e;
 }
 .photo-grid__card .card-info__plant-name {
-  word-spacing: 100vw;
+  max-width: 12ch;
 }
 .photo-grid__card .card-info__price-option {
   display: inherit;
@@ -89,38 +146,48 @@
   margin-left: 8px;
 }
 .photo-grid .staff-favorite {
-  grid-area: 1/1/3/3;
-  height: 530px;
-  width: 475px;
+  grid-area: 1/1/1/1;
+  position: relative;
 }
-.photo-grid .staff-favorite .card-image {
-  justify-self: center;
-  height: 353px;
+.photo-grid .staff-favorite .staff-fav-icon {
+  position: absolute;
+  top: 20px;
 }
-.photo-grid .staff-favorite .card-info {
-  flex-direction: row;
-}
-.photo-grid .staff-favorite .card-info__price-option {
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.photo-grid .staff-favorite .card-info__price {
-  font-size: 24px;
-  line-height: 28px;
-  text-align: right;
-  margin-bottom: 16px;
-}
-.photo-grid .staff-favorite .card-info__plant-name {
-  font-size: 35px;
-  line-height: 37px;
-}
-.photo-grid .staff-favorite .card-info__options-images {
-  display: inherit;
-  flex-direction: row;
-}
-.photo-grid .staff-favorite .card-info__options-images img {
-  width: 35px;
-  height: 26px;
+@media (min-width: 801px) {
+  .photo-grid .staff-favorite {
+    grid-area: 1/1/3/3;
+    height: 530px;
+    width: 475px;
+  }
+  .photo-grid .staff-favorite .card-image {
+    justify-self: center;
+    height: 353px;
+  }
+  .photo-grid .staff-favorite .card-info {
+    flex-direction: row;
+  }
+  .photo-grid .staff-favorite .card-info__price-option {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .photo-grid .staff-favorite .card-info__price {
+    font-size: 24px;
+    line-height: 28px;
+    text-align: right;
+    margin-bottom: 16px;
+  }
+  .photo-grid .staff-favorite .card-info__plant-name {
+    font-size: 35px;
+    line-height: 37px;
+  }
+  .photo-grid .staff-favorite .card-info__options-images {
+    display: inherit;
+    flex-direction: row;
+  }
+  .photo-grid .staff-favorite .card-info__options-images img {
+    width: 35px;
+    height: 26px;
+  }
 }
 
 /*# sourceMappingURL=/results.7e1f0e4c.css.map */
