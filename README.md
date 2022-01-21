@@ -1,5 +1,7 @@
-# basic-test-boilerplate
+# Red Venture Test Boilerplate
 ## How to run the project
-```yarn install </br>
- yarn start
 ```
+yarn install
+yarn start
+```
+
